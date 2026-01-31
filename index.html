@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Picture" class="profile-pic">
+                <div class="personal-info">
+                    <h1>Alex Johnson</h1>
+                    <h3>Senior Software Engineer</h3>
+                    <div class="id-number">ID: EMP-2023-4876</div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="qr-section">
+                    <div class="qr-container" id="qrcode" title="Tap to open bio form"></div>
+                    <p class="qr-instruction">Scan this QR code to open the bio form where you can view all details.</p>
+                    <button class="scan-btn" id="scanBtn">
+                        <i class="fas fa-qrcode"></i> Open Bio Form
+                    </button>
+                </div>
+            </div> 
+            
+            <div class="card-footer">
+                <p>© 2023 TechCorp Inc. | This digital ID card is company property.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bio Form Modal -->
+    <div class="form-modal" id="formModal">
+        <div class="form-container">
+            <div class="close-btn" id="closeBtn">&times;</div>
+            <h2 class="form-title">Employee Bio Information</h2>
+            
+            <form id="bioForm">
+                <div class="form-group">
+                    <label for="profilePic">Profile Picture</label>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Preview" id="profilePreview" style="width:68px;height:68px;border-radius:50%;object-fit:cover;border:1px solid #ddd;">
+                        <input type="file" id="profilePic" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" value="Alex Johnson" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeId">Employee ID</label>
+                        <input type="text" id="employeeId" name="employeeId" value="EMP-2023-4876" required>
+                    </div>
+                </div> 
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" name="jobTitle" value="Senior Software Engineer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" name="department">
+                            <option value="Engineering">Engineering</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sales">Sales</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" value="alex.johnson@techcorp.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Full Address</label>
+                    <textarea id="address" name="address" rows="3">123 Tech Park Avenue, Suite 450, San Francisco, CA 94107, United States</textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" value="+1 (555) 123-4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="extension">Extension</label>
+                        <input type="text" id="extension" name="extension" value="4567">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="skills">Key Skills & Expertise</label>
+                    <textarea id="skills" name="skills" rows="3">JavaScript, React, Node.js, Python, Cloud Architecture, DevOps, Team Leadership</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bio">Professional Bio</label>
+                    <textarea id="bio" name="bio" rows="5">Experienced software engineer with 8+ years in full-stack development. Passionate about building scalable web applications and mentoring junior developers. Currently leading the front-end architecture for TechCorp's flagship product.</textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Update Bio Information</button>
+            </form>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
